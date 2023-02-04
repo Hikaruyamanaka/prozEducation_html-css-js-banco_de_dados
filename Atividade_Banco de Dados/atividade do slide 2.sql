@@ -56,7 +56,7 @@ select nome_alunos, nome_disciplina
 from alunos right join disciplinas
 on disciplinas.id_disciplina = alunos.disciplinas_id;
 
-/* Utilizando Union para unir as duas joins */
+/* Utilizando */
 select nome_alunos, nome_disciplina 
 from alunos left join disciplinas
 on disciplinas.id_disciplina = alunos.disciplinas_id
@@ -64,29 +64,3 @@ union
 select nome_alunos, nome_disciplina 
 from alunos right join disciplinas
 on disciplinas.id_disciplina = alunos.disciplinas_id;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-('Rian', null),
-('Mia', 2),
-('Malu', 1);
-
-select * from alunos;
