@@ -64,3 +64,27 @@ union
 select nome_alunos, nome_disciplina 
 from alunos right join disciplinas
 on disciplinas.id_disciplina = alunos.disciplinas_id;
+
+/* modelo de utilizar trigger */
+delimiter //
+create trigger nome_trigger
+after insert on usuario_voto
+for each row
+begin 
+/* Aqui é inserido a estrutura trigger */
+end //
+delimiter ;
+
+delimiter $$
+create trigger inserir_dados
+after insert 
+on pessoar
+for each row
+begin 
+	/* Aqui é inserido a estrutura trigger */
+	if new.dataNasc is null then
+		insert into lembrete(pessoaId, mensagem)
+		values(new.id, concat('Oi ', New.name, ', atualize sua data de nascimento.'));
+	end if;
+end$$
+delimiter ;
